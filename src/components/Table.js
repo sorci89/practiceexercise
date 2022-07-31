@@ -1,7 +1,7 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 
-const Table = ({ invoices, setInvoices }) => {
+const Table = ({ invoices, handleSorting }) => {
   const columns = [
     { label: "Invoice ID", accessor: "id" },
     { label: "Date", accessor: "date" },
@@ -11,18 +11,18 @@ const Table = ({ invoices, setInvoices }) => {
     { label: "Due", accessor: "due" },
   ];
 
-  const handleSorting = (sortField, sortOrder) => {
-    if (sortField === "date" || sortField === "payable_amount") {
-      const sorted = [...invoices].sort((a, b) => {
-        return (
-          a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
-            numeric: true,
-          }) * (sortOrder === "asc" ? 1 : -1)
-        );
-      });
-      setInvoices(sorted);
-    }
-  };
+  //   const handleSorting = (sortField, sortOrder) => {
+  //     if (sortField === "date" || sortField === "payable_amount") {
+  //       const sorted = [...invoices].sort((a, b) => {
+  //         return (
+  //           a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
+  //             numeric: true,
+  //           }) * (sortOrder === "asc" ? 1 : -1)
+  //         );
+  //       });
+  //       setInvoices(sorted);
+  //     }
+  //   };
 
   return (
     <>

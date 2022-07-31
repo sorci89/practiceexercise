@@ -12,6 +12,25 @@ const Sales = () => {
     setInvoices(response.data)
   }
 
+  
+  const handleSorting = (sortField, sortOrder) => {
+    if (sortField === "date" || sortField === "payable_amount") {
+      const sorted = [...invoices].sort((a, b) => {
+        return (
+          a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
+            numeric: true,
+          }) * (sortOrder === "asc" ? 1 : -1)
+        );
+      });
+      setInvoices(sorted);
+      const searchParams = new URLSearchParams();
+        searchParams.append("sort_by", sortField)
+        searchParams.append("order", sortOrder)
+      const newUrl = "?" + searchParams.toString()
+      window.history.replaceState(null, null, newUrl)
+    }
+  };
+
   useEffect(() => {
     getData()
   }, [])
@@ -29,7 +48,7 @@ const Sales = () => {
         <input type="text" name='startDate' placeholder='Start Date'/>
         <label htmlFor="endDate"></label>
         <input type="text" name='endDate' placeholder='End Date'/>
-        <Table invoices={invoices} setInvoices={setInvoices}/>
+        <Table invoices={invoices} setInvoices={setInvoices} handleSorting={handleSorting}/>
 
     </div>
   )
