@@ -1,38 +1,628 @@
-.App {
-  text-align: center;
+* {
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  outline:none;
+  text-decoration:none;
+  outline:none;
+  font-family:inherit;
+  box-sizing:border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ol, ul, li {
+  list-style:none;display:block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing:0;
+}
+a img {
+  border: none;
+}
+  
+button,
+a{
+  cursor: pointer; 
+  color: inherit;
+}
+  
+textarea {
+  resize: none;
+}
+  
+button,
+input,
+textarea,
+select {
+  appearance: none !important; -webkit-appearance: none !important; border-radius: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background-color: #F8F8F8;
+
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sideBar {
+  position: absolute;
+  width: 230px;
+  height: 1149px;
+  left: 0px;
+  top: 0px;
+
+  background: #FFFFFF;
+}
+
+.logo {
+  position: absolute;
+  width: 71px;
+  height: 36px;
+  left: 29px;
+  top: 55px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #013CC6;
+}
+
+.sideBarContainer {
+  position: absolute;
+  width: 166px;
+  height: 993px;
+  left: 41px;
+  top: 156px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 30px;
+  gap: 525px;
+
+}
+.active {
+  position: absolute;
+  width: 3px;
+  height: 39px;
+  top: 149px;
+  left: 0px;
+  background-color:#0B63F8;
+}
+.dashBoardIcon1 {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  
+  width: 8.5px;
+  height: 8.49px;
+  background-color: #0B63F8;  
+}
+.dashBoardIcon2 {
+  position: absolute;
+  top: 2px;
+  left: 13.5px;
+
+  width: 8.5px;
+  height: 8.49px;
+  background-color: #0B63F8;  
+}
+.dashBoardIcon3 {
+  position: absolute;
+  top: 13.5px;
+  left: 2px;
+
+  width: 8.5px;
+  height: 8.49px;
+  background-color: #0B63F8;  
+}
+.dashBoardIcon4 {
+  position: absolute;
+  top: 13.5px;
+  left: 13.5px;
+
+  width: 8.5px;
+  height: 8.49px;
+  background-color: #0B63F8;  
+}
+.dashBoardText {
+  position: absolute;
+  width: 92px;
+  height: 24px;
+  left: 39px;
+  top: 0px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #0B63F8;
+}
+.labTestIcon{
+  position: absolute;
+  left: 2px;
+  /* right: 13.71%; */
+  top: 6.8%;
+  /* bottom: 8.33%; */
+  width: 20.01px;
+  height: 18.88px;    
+}
+.labTestText {
+  position: absolute;
+  width: 69px;
+  height: 24px;
+  left: 40px;
+  top: 65px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  letter-spacing: 0.02em;
+
+  color: #000000;
+
+  mix-blend-mode: normal;
+}
+.appointmentIcon {
+  position: absolute;
+  left: 2px;
+  /* right: 12.46%; */
+  top: 13.4%;
+  /* bottom: 8.33%;   */
+
+  width: 20.01px;
+  height: 18.88px;   
+}
+.appointmentText {
+  position: absolute;
+  width: 109px;
+  height: 24px;
+  left: 40px;
+  top: 130px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  
+  color: #131313;
+}
+.medicineIcon {
+  position: absolute;
+  left: 2px;
+  /* right: 13.15%; */
+  top: 19.82%;
+  /* bottom: 8.33%; */
+  width: 20.01px;
+  height: 18.88px;  
+}
+
+.medicineOrderText {
+  position: absolute;
+  width: 127px;
+  height: 24px;
+  left: 40px;
+  top: 195px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  letter-spacing: 0.02em;
+  color: #131313;
+}
+.messageIcon {
+  position: absolute;
+  left: 2px;
+  /* right: 8.33%; */
+  top: 26.58%;
+  /* bottom: 14.58%;   */
+  width: 20.01px;
+  height: 18.88px;  
+}
+.messageText {
+  position: absolute;
+  width: 74px;
+  height: 24px;
+  left: 39px;
+  top: 260px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  
+  letter-spacing: 0.02em;
+  
+  color: #131313;
+}
+.paymentIcon {
+  position: absolute;
+  left: 2px;
+  /* right: 8.29%; */
+  top: 32.9%;
+  /* bottom: 8.33%; */
+  
+  width: 20.01px;
+  height: 18.88px;  
+}
+.paymentText {
+  position: absolute;
+  width: 74px;
+  height: 24px;
+  left: 40px;
+  top: 325px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #131313;
+}
+.settingIcon {
+  position: absolute;
+  left: 2px;
+  /* right: 8.29%; */
+  top: 39.6%;
+  /* bottom: 10.67%; */
+
+  width: 20.01px;
+  height: 18.88px;  
+}
+.settingsText {
+  position: absolute;
+  width: 67px;
+  height: 24px;
+  left: 40px;
+  top: 390px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #131313;
+}
+.helpIcon{
+  position: absolute;
+  left: 2px;
+  /* right: 9.37%; */
+  top: 94.87%;
+  /* bottom: 9.38%; */
+
+  width: 20.01px;
+  height: 18.88px;
+}
+.helpText {
+  position: absolute;
+  top: 939px;
+  left: 40px;
+  width: 37px;
+  height: 24px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #131313;
+}
+
+
+.topHeader {
+  position: absolute;
+  width: 1129px;
+  height: 52px;
+  left: 271px;
+  top: 56.1px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 350px;
+  
+}
+
+.searchContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 655px;
+  height: 52px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.searchContainer input {
+  position: absolute;
+  left: 5.31%;
+  /* right: 89.64%; */
+  top: 26.72%;
+  /* bottom: 27.12%; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  
+  color: #ADA7A7;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchContainer svg {
+  position: absolute;
+  left: 2.31%;
+  top: 26.72%;
+  /* bottom: 27.12%; */
+
+  align-self: center;
+  width: 19px;
+  height: 19px;
+  
+  color: #ADA7A7;
+}
+
+.frame3 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+
+  width: 124px;
+  height: 52px;
+}
+
+.profileAvatar,
+.iconBell {
+  width: 52px;
+  height: 52px;
+
+}
+
+.profileAvatar{
+  border-radius: 10px;
+  /* background: url(.jpg); */
+  background: #FFFFFF;
+}
+
+.ellipse{
+  position: absolute;
+  left: 90.38%;
+  top: -5.97%;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background: #FFBC0F;
+}
+
+.iconBell{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 3px;
+
+}
+
+.iconBell svg {
+  width: 17.81px;
+  height: 17.6px;
+  top: 2px;
+  left: 3.1px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ADA7A7;
+}
+
+
+.salesInformationText {
+  position: absolute;
+  width: 213px;
+  height: 36px;
+  left: 270px;
+  top: 152px;
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+}
+
+.frame5{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 22px;
+  
+  position: absolute;
+  width: 1130px;
+  height: 90px;
+  left: 270px;
+  top: 212px;
+}
+
+.customerSearch,
+.invoiceSearch,
+.startDateSearch,
+.endDateSearch {
+  width: 266px;
+  height: 90px;
+}
+
+.customerSearch label {
+  position: absolute;
+  width: 80px;
+  height: 24px;
+  left: 0px;
+  top: 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.customerSearch input {
+  position: absolute;
+  width: 266px;
+  height: 50px;
+  left: 0px;
+  top: 40px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;
+}
+
+.invoiceSearch label{
+  position: absolute;
+  width: 77px;
+  height: 24px;
+  left: 288px;
+  top: 0px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  
+  color: #000000;
+}
+
+.invoiceSearch input{
+  position: absolute;
+  width: 266px;
+  height: 50px;
+  left: 288px;
+  top: 40px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.startDateSearch label{
+  position: absolute;
+  width: 80px;
+  height: 24px;
+  left: 576px;
+  top: 0px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;  
+}
+
+.startDateSearch input{
+  position: absolute;
+  width: 266px;
+  height: 50px;
+  left: 576px;
+  top: 40px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.endDateSearch label {
+  position: absolute;
+  width: 72px;
+  height: 24px;
+  left: 864px;
+  top: 0px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;  
+}
+
+.endDateSearch input{
+  position: absolute;
+  width: 266px;
+  height: 50px;
+  left: 864px;
+  top: 40px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.customerSearch input::placeholder,
+.invoiceSearch input::placeholder,
+.startDateSearch input::placeholder,
+.endDateSearch input::placeholder {
+  position: absolute;
+  width: 176px;
+  height: 24px;
+  left: 24px;
+  top: 13px;
+  
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(19, 19, 19, 0.6);
+}
+table,
+td,
+th {
+  border-bottom: 1px solid #F2F2F2;
+}
+
+table {
+  position: absolute;
+  width: 1130px;
+  height: 774px;
+  left: 270px;
+  top: 342px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  line-height: 78px;
+}
+
+td {
+  opacity: 0.65;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 78px;
+}
+
+td.id{
+  color: #0B63F8;
+  opacity: 1;
+}
+
+thead th {
+  font-family: 'Lato', sans-serif;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  color: #000000;
 }

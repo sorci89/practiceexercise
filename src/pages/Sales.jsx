@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { todoApi } from '../api/todoApi'
 import Table from '../components/Table'
+import {FiSearch, FiBell} from 'react-icons/fi'
 
 const Sales = () => {
   const [invoices, setInvoices] = useState([])
@@ -46,17 +47,42 @@ const Sales = () => {
   
 
   return (
-    <div>
-        <input type="text" />
-        <h1>Sales information</h1>
-        <label htmlFor="customer"></label>
-        <input type="text" name='customer' placeholder='Enter Customer Name'/>
-        <label htmlFor="invoice"></label>
-        <input type="text" name='invoice' placeholder='Enter Invoice ID'/>
-        <label htmlFor="startDate"></label>
-        <input type="text" name='startDate' placeholder='Start Date'/>
-        <label htmlFor="endDate"></label>
-        <input type="text" name='endDate' placeholder='End Date'/>
+    <div className='salesContainer'>
+      <div className='topHeader'>
+        <div className='searchContainer'>
+        <FiSearch />
+        <input type="text" placeholder='Search'/>
+        </div>
+        <div className='frame3'>
+          <div className='iconBell'>
+            <FiBell />
+            <div className='ellipse'></div>
+          </div>
+          <div className='profileAvatar'></div>
+        </div> 
+        {/* <div className='searchBar'>
+        </div> */}
+      </div>
+      <div className='salesInformationText'>Sales information</div>
+      <div className='frame5'>
+        <div className='customerSearch'>
+          <label htmlFor="customer">Customer</label>
+          <input type="text" name='customer' placeholder='Enter Customer Name'/>
+        </div>
+        <div className='invoiceSearch'>
+          <label htmlFor="invoice">Invoice ID</label>
+          <input type="text" name='invoice' placeholder='Enter Invoice ID'/>
+        </div>
+        <div className='startDateSearch'>
+          <label htmlFor="startDate">Start Date</label>
+          <input type="text" name='startDate' placeholder='Start Date'/>
+        </div>
+        <div className='endDateSearch'>
+          <label htmlFor="endDate">End Date</label>
+          <input type="text" name='endDate' placeholder='End Date'/>
+        </div>
+      </div>
+      
         <Table invoices={invoices} handleSortingChange={handleSortingChange}/>
 
     </div>
