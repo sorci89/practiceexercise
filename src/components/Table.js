@@ -3,6 +3,7 @@ import TableHead from "./TableHead";
 
 const Table = ({ invoices, handleSortingChange }) => {
   const columns = [
+    { label: "?", accessor: "?" },
     { label: "Invoice ID", accessor: "id" },
     { label: "Date", accessor: "date" },
     { label: "Customer", accessor: "customer" },
