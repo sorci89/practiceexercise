@@ -4,6 +4,8 @@ import Table from '../components/Table'
 
 const Sales = () => {
   const [invoices, setInvoices] = useState([])
+  const [sortField, setSortField] = useState("");
+  const [order, setOrder] = useState("asc");
 
   const { get } = todoApi()
 
@@ -12,6 +14,13 @@ const Sales = () => {
     setInvoices(response.data)
   }
 
+  const handleSortingChange = (accessor) => {
+    const sortOrder =
+      accessor === sortField && order === "asc" ? "desc" : "asc";
+    setSortField(accessor);
+    setOrder(sortOrder);
+    handleSorting(accessor, sortOrder);
+  };
   
   const handleSorting = (sortField, sortOrder) => {
     if (sortField === "date" || sortField === "payable_amount") {
@@ -48,7 +57,7 @@ const Sales = () => {
         <input type="text" name='startDate' placeholder='Start Date'/>
         <label htmlFor="endDate"></label>
         <input type="text" name='endDate' placeholder='End Date'/>
-        <Table invoices={invoices} setInvoices={setInvoices} handleSorting={handleSorting}/>
+        <Table invoices={invoices} handleSortingChange={handleSortingChange}/>
 
     </div>
   )
