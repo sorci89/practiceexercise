@@ -391,8 +391,9 @@ body{
 
 .profileAvatar{
   border-radius: 10px;
-  /* background: url(.jpg); */
-  background: #FFFFFF;
+  background-image: url("/public/profile-picture.png"); 
+  background-size: cover;
+  /* background: #FFFFFF; */
 }
 
 .ellipse{
