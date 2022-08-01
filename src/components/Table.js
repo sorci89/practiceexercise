@@ -3,7 +3,7 @@ import TableHead from "./TableHead";
 
 const Table = ({ invoices, handleSortingChange }) => {
   const columns = [
-    { label: "?", accessor: "?" },
+    { label: <input type="checkbox" />, accessor: "?" },
     { label: "Invoice ID", accessor: "id" },
     { label: "Date", accessor: "date" },
     { label: "Customer", accessor: "customer" },
