@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSearchParams } from "react-router-dom"
 import { todoApi } from '../api/todoApi'
 import Table from '../components/Table'
 import {FiSearch, FiBell} from 'react-icons/fi'
@@ -7,6 +8,7 @@ const Sales = () => {
   const [invoices, setInvoices] = useState([])
   const [sortField, setSortField] = useState("");
   const [order, setOrder] = useState("asc");
+  let [,setSearchParams] = useSearchParams();
 
   const { get } = todoApi()
 
@@ -34,11 +36,15 @@ const Sales = () => {
         );
       });
       setInvoices(sorted);
-      const searchParams = new URLSearchParams();
-        searchParams.append("sort_by", sortField)
-        searchParams.append("order", order)
-      const newUrl = "?" + searchParams.toString()
-      window.history.replaceState(null, null, newUrl)
+      // why not use the one thatcomes with react router? 
+      // https://reactrouter.com/docs/en/v6/hooks/use-search-params
+
+      setSearchParams({
+        // we can use shorthand here
+        // https://ui.dev/shorthand-properties
+        order,
+        sort_by: sortField,
+      })
     }
   };
 
