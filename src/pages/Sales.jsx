@@ -20,22 +20,23 @@ const Sales = () => {
       accessor === sortField && order === "asc" ? "desc" : "asc";
     setSortField(accessor);
     setOrder(sortOrder);
-    handleSorting(accessor, sortOrder);
+    // if we set both the sortfield and the order, why do we need to pass it on again?
+    handleSorting();
   };
   
-  const handleSorting = (sortField, sortOrder) => {
+  const handleSorting = () => {
     if (sortField === "date" || sortField === "payable_amount") {
       const sorted = [...invoices].sort((a, b) => {
         return (
           a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
             numeric: true,
-          }) * (sortOrder === "asc" ? 1 : -1)
+          }) * (order === "asc" ? 1 : -1)
         );
       });
       setInvoices(sorted);
       const searchParams = new URLSearchParams();
         searchParams.append("sort_by", sortField)
-        searchParams.append("order", sortOrder)
+        searchParams.append("order", order)
       const newUrl = "?" + searchParams.toString()
       window.history.replaceState(null, null, newUrl)
     }
