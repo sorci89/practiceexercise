@@ -6,9 +6,11 @@ import {FiSearch, FiBell} from 'react-icons/fi'
 
 const Sales = () => {
   const [invoices, setInvoices] = useState([])
-  const [sortField, setSortField] = useState("");
-  const [order, setOrder] = useState("asc");
-  let [,setSearchParams] = useSearchParams();
+  // add the option to set the sort order and field based on the query params
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [sortField, setSortField] = useState(searchParams.get('sort_by') || '');
+  const [order, setOrder] = useState(searchParams.get('order') || 'asc');
 
   const { get } = todoApi()
 
@@ -22,36 +24,31 @@ const Sales = () => {
       accessor === sortField && order === "asc" ? "desc" : "asc";
     setSortField(accessor);
     setOrder(sortOrder);
-    // if we set both the sortfield and the order, why do we need to pass it on again?
-    handleSorting();
+    
+    setSearchParams({
+      // we can use shorthand here
+      // https://ui.dev/shorthand-properties
+      order: sortOrder,
+      sort_by: accessor,
+    })
   };
-  
-  const handleSorting = () => {
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  const sortedInvoices = () => {
     if (sortField === "date" || sortField === "payable_amount") {
-      const sorted = [...invoices].sort((a, b) => {
+      return [...invoices].sort((a, b) => {
         return (
           a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
             numeric: true,
           }) * (order === "asc" ? 1 : -1)
         );
       });
-      setInvoices(sorted);
-      // why not use the one thatcomes with react router? 
-      // https://reactrouter.com/docs/en/v6/hooks/use-search-params
-
-      setSearchParams({
-        // we can use shorthand here
-        // https://ui.dev/shorthand-properties
-        order,
-        sort_by: sortField,
-      })
     }
-  };
-
-  useEffect(() => {
-    getData()
-  }, [])
-  
+    return invoices;
+  }
 
   return (
     <div className='salesContainer'>
@@ -90,7 +87,7 @@ const Sales = () => {
         </div>
       </div>
       
-        <Table invoices={invoices} handleSortingChange={handleSortingChange}/>
+        <Table invoices={sortedInvoices()} handleSortingChange={handleSortingChange}/>
 
     </div>
   )
