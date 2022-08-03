@@ -9,8 +9,9 @@ const Sales = () => {
   // add the option to set the sort order and field based on the query params
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [sortField, setSortField] = useState(searchParams.get('sort_by') || '');
-  const [order, setOrder] = useState(searchParams.get('order') || 'asc');
+  // now we don't need a state anymore, we could use the browser url as a sort of state
+  const sortField = searchParams.get('sort_by') || ''
+  const order = searchParams.get('order') || 'asc'
 
   const { get } = todoApi()
 
@@ -22,8 +23,6 @@ const Sales = () => {
   const handleSortingChange = (accessor) => {
     const sortOrder =
       accessor === sortField && order === "asc" ? "desc" : "asc";
-    setSortField(accessor);
-    setOrder(sortOrder);
     
     setSearchParams({
       // we can use shorthand here
