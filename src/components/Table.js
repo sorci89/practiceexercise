@@ -20,7 +20,9 @@ const Table = ({ invoices, handleSortingChange }) => {
           columns={columns}
           handleSortingChange={handleSortingChange}
         />
-        <TableBody columns={columns} invoices={invoices} />
+        {invoices && (
+          <TableBody columns={columns} invoices={invoices} />
+        )}
       </table>
     </>
   );
