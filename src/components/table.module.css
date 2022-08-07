@@ -29,7 +29,7 @@
 }
 
 .highlight {
-  color: #0B63F8;
+  color: var(--main--color);
   opacity: 1;
 }
 
@@ -39,5 +39,5 @@
   font-weight: 600;
   font-size: 16px;
 
-  color: #000000;
+  color:var(--black);
 }
