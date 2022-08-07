@@ -1,5 +1,6 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
+import './table.css';
 
 const Table = ({ invoices, handleSortingChange }) => {
   const columns = [

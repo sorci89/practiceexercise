@@ -26,7 +26,7 @@ const TableBody = ({ invoices, columns }) => {
                   data[accessor]
                 );
               return (
-                <td key={accessor} className={accessor}>
+                <td key={accessor} className={`table-cell ${accessor}`}>
                   {tData}
                 </td>
               );

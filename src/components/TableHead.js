@@ -4,7 +4,7 @@ const TableHead = ({ columns, handleSortingChange }) => {
       <tr>
         {columns.map(({ label, accessor }) => {
           return (
-            <th key={accessor} onClick={() => handleSortingChange(accessor)}>
+            <th key={accessor} onClick={() => handleSortingChange(accessor)} className="table-head-cell">
               {label}
             </th>
           );
