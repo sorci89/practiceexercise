@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useSearchParams } from "react-router-dom"
 import { todoApi } from '../api/todoApi'
 import Table from '../components/Table'
 import {FiSearch, FiBell} from 'react-icons/fi'
 
 const Sales = () => {
   const [invoices, setInvoices] = useState([])
-  const [sortField, setSortField] = useState("");
-  const [order, setOrder] = useState("asc");
+  // add the option to set the sort order and field based on the query params
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // now we don't need a state anymore, we could use the browser url as a sort of state
+  const sortField = searchParams.get('sort_by') || ''
+  const order = searchParams.get('order') || 'asc'
 
   const { get } = todoApi()
 
@@ -18,33 +23,31 @@ const Sales = () => {
   const handleSortingChange = (accessor) => {
     const sortOrder =
       accessor === sortField && order === "asc" ? "desc" : "asc";
-    setSortField(accessor);
-    setOrder(sortOrder);
-    handleSorting(accessor, sortOrder);
-  };
-  
-  const handleSorting = (sortField, sortOrder) => {
-    if (sortField === "date" || sortField === "payable_amount") {
-      const sorted = [...invoices].sort((a, b) => {
-        return (
-          a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
-            numeric: true,
-          }) * (sortOrder === "asc" ? 1 : -1)
-        );
-      });
-      setInvoices(sorted);
-      const searchParams = new URLSearchParams();
-        searchParams.append("sort_by", sortField)
-        searchParams.append("order", sortOrder)
-      const newUrl = "?" + searchParams.toString()
-      window.history.replaceState(null, null, newUrl)
-    }
+    
+    setSearchParams({
+      // we can use shorthand here
+      // https://ui.dev/shorthand-properties
+      order: sortOrder,
+      sort_by: accessor,
+    })
   };
 
   useEffect(() => {
     getData()
   }, [])
-  
+
+  const sortedInvoices = () => {
+    if (sortField === "date" || sortField === "payable_amount") {
+      return [...invoices].sort((a, b) => {
+        return (
+          a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
+            numeric: true,
+          }) * (order === "asc" ? 1 : -1)
+        );
+      });
+    }
+    return invoices;
+  }
 
   return (
     <div className='salesContainer'>
@@ -83,7 +86,7 @@ const Sales = () => {
         </div>
       </div>
       
-        <Table invoices={invoices} handleSortingChange={handleSortingChange}/>
+        <Table invoices={sortedInvoices()} handleSortingChange={handleSortingChange}/>
 
     </div>
   )

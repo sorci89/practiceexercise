@@ -1,0 +1,43 @@
+.table,
+.table-cell,
+.table-head-cell {
+  border-bottom: 1px solid #F2F2F2;
+}
+
+.table-cell, .table-head-cell{
+  padding: 0 15px;
+}
+
+.table {
+  position: absolute;
+  width: 1130px;
+  height: 774px;
+  left: 270px;
+  top: 342px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  line-height: 78px;
+}
+
+.table-cell {
+  opacity: 0.65;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 78px;
+}
+
+.highlight {
+  color: var(--main--color);
+  opacity: 1;
+}
+
+.table-head-cell {
+  font-family: 'Lato', sans-serif;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  color:var(--black);
+}

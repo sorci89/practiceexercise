@@ -10,6 +10,11 @@
   box-sizing:border-box;
 }
 
+:root {
+  --main--color: #0B63F8;
+  --black: #000000;
+}
+
 ol, ul, li {
   list-style:none;display:block;
 }
@@ -88,7 +93,7 @@ body{
   height: 39px;
   top: 149px;
   left: 0px;
-  background-color:#0B63F8;
+  background-color:var(--main--color);
 }
 .dashBoardIcon1 {
   position: absolute;
@@ -97,7 +102,7 @@ body{
   
   width: 8.5px;
   height: 8.49px;
-  background-color: #0B63F8;  
+  background-color: var(--main--color);  
 }
 .dashBoardIcon2 {
   position: absolute;
@@ -106,7 +111,7 @@ body{
 
   width: 8.5px;
   height: 8.49px;
-  background-color: #0B63F8;  
+  background-color: var(--main--color);  
 }
 .dashBoardIcon3 {
   position: absolute;
@@ -115,7 +120,7 @@ body{
 
   width: 8.5px;
   height: 8.49px;
-  background-color: #0B63F8;  
+  background-color: var(--main--color);  
 }
 .dashBoardIcon4 {
   position: absolute;
@@ -124,7 +129,7 @@ body{
 
   width: 8.5px;
   height: 8.49px;
-  background-color: #0B63F8;  
+  background-color: var(--main--color);  
 }
 .dashBoardText {
   position: absolute;
@@ -138,7 +143,7 @@ body{
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: #0B63F8;
+  color: var(--main--color);
 }
 .labTestIcon{
   position: absolute;
@@ -163,7 +168,7 @@ body{
 
   letter-spacing: 0.02em;
 
-  color: #000000;
+  color:var(--black);
 
   mix-blend-mode: normal;
 }
@@ -441,7 +446,7 @@ body{
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  color: #000000;
+  color:var(--black);
 }
 
 .frame5{
@@ -478,7 +483,7 @@ body{
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #000000;
+  color:var(--black);
 }
 
 .customerSearch input {
@@ -505,7 +510,7 @@ body{
   font-size: 16px;
   line-height: 24px;
   
-  color: #000000;
+  color:var(--black);
 }
 
 .invoiceSearch input{
@@ -531,7 +536,7 @@ body{
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #000000;  
+  color:var(--black);  
 }
 
 .startDateSearch input{
@@ -557,7 +562,7 @@ body{
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #000000;  
+  color:var(--black);  
 }
 
 .endDateSearch input{
@@ -587,49 +592,6 @@ body{
   font-size: 16px;
   line-height: 24px;
   color: rgba(19, 19, 19, 0.6);
-}
-table,
-td,
-th {
-  border-bottom: 1px solid #F2F2F2;
-}
-
-td,th{
-  padding: 0 15px;
-}
-
-table {
-  position: absolute;
-  width: 1130px;
-  height: 774px;
-  left: 270px;
-  top: 342px;
-  background: #FFFFFF;
-  border-radius: 3px;
-  line-height: 78px;
-}
-
-td {
-  opacity: 0.65;
-  text-align: center;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 78px;
-}
-
-td.id{
-  color: #0B63F8;
-  opacity: 1;
-}
-
-thead th {
-  font-family: 'Lato', sans-serif;
-
-  font-weight: 600;
-  font-size: 16px;
-
-  color: #000000;
 }
 
 input[type="checkbox"] {

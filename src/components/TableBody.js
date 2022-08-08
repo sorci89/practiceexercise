@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import styles from './table.module.css';
 
 const TableBody = ({ invoices, columns }) => {
   return (
@@ -7,6 +8,7 @@ const TableBody = ({ invoices, columns }) => {
         return (
           <tr key={data.id}>
             {columns.map(({ accessor }) => {
+               const highlightedCell = accessor === 'id' ? 'highlight' : ''
               const tData =
                 accessor === "payable_amount" ? (
                   "$" + Math.round(data[accessor])
@@ -26,7 +28,7 @@ const TableBody = ({ invoices, columns }) => {
                   data[accessor]
                 );
               return (
-                <td key={accessor} className={accessor}>
+                <td key={accessor} className={`${styles['table-cell']} ${styles[highlightedCell]}`}>
                   {tData}
                 </td>
               );
