@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from "react-router-dom"
 import { todoApi } from '../api/todoApi'
-import Table from '../components/Table'
+import Table from '../components/table/Table'
+import styles from '../pages/sales.module.css';
 import {FiSearch, FiBell} from 'react-icons/fi'
 
 const Sales = () => {
@@ -50,37 +51,37 @@ const Sales = () => {
   }
 
   return (
-    <div className='salesContainer'>
-      <div className='topHeader'>
-        <div className='searchContainer'>
+    <div className={styles.salesContainer}>
+      <div className={styles.topHeader}>
+        <div className={styles.GlobalSearchFieldContainer}>
         <FiSearch />
         <input type="text" placeholder='Search'/>
         </div>
-        <div className='frame3'>
-          <div className='iconBell'>
+        <div className={styles.iconProfileContainer}>
+          <div className={styles.iconBell}>
             <FiBell />
-            <div className='ellipse'></div>
+            <div className={styles.ellipse}></div>
           </div>
-          <div className='profileAvatar'></div>
+          <div className={styles.profileAvatar}></div>
         </div> 
         {/* <div className='searchBar'>
         </div> */}
       </div>
-      <div className='salesInformationText'>Sales information</div>
-      <div className='frame5'>
-        <div className='customerSearch'>
+      <div className={styles.salesInformationText}>Sales information</div>
+      <div className={styles.salesSearchFields}>
+        <div className={styles.customerSearch}>
           <label htmlFor="customer">Customer</label>
           <input type="text" name='customer' placeholder='Enter Customer Name'/>
         </div>
-        <div className='invoiceSearch'>
+        <div className={styles.invoiceSearch}>
           <label htmlFor="invoice">Invoice ID</label>
           <input type="text" name='invoice' placeholder='Enter Invoice ID'/>
         </div>
-        <div className='startDateSearch'>
+        <div className={styles.startDateSearch}>
           <label htmlFor="startDate">Start Date</label>
           <input type="text" name='startDate' placeholder='Start Date'/>
         </div>
-        <div className='endDateSearch'>
+        <div className={styles.endDateSearch}>
           <label htmlFor="endDate">End Date</label>
           <input type="text" name='endDate' placeholder='End Date'/>
         </div>

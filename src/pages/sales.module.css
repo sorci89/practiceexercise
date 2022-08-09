@@ -1,0 +1,245 @@
+.salesContainer {
+  margin: 56px 40px 33px 270px;
+}
+
+.topHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 350px;
+    
+    padding: 0px;
+    width: 1129px;
+    height: 52px;
+  
+}
+
+.GlobalSearchFieldContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  width: 655px;
+  height: 52px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.GlobalSearchFieldContainer input {
+  margin: 13.9px 0 14.1px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ADA7A7;
+}
+
+.GlobalSearchFieldContainer svg {
+  margin: 15.9px 19px 17.1px 22px;
+  align-self: center;
+  
+  width: 19px;
+  height: 19px;
+  
+  color: #ADA7A7;
+}
+
+.iconProfileContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  
+  padding: 0px;
+
+  width: 124px;
+  height: 52px;
+}
+
+.profileAvatar,
+.iconBell {
+  width: 52px;
+  height: 52px;
+}
+
+.profileAvatar{
+  border-radius: 10px;
+  background-image: url("/public/profile-picture.png"); 
+  background-size: cover;
+}
+
+.ellipse{
+  position: absolute;
+  left: 90.38%;
+  top: -5.97%;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background: #FFBC0F;
+}
+
+.iconBell{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 3px;
+}
+
+.iconBell svg {
+  width: 17.81px;
+  height: 17.6px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ADA7A7;
+}
+
+
+.salesInformationText {
+  margin: 43.9px 0 24px;
+  
+  width: 213px;
+  height: 36px;
+  
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color:var(--black);
+}
+
+.salesSearchFields{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  
+  padding: 0px;
+  
+  width: 1130px;
+  height: 90px;
+}
+
+.customerSearch,
+.invoiceSearch,
+.startDateSearch,
+.endDateSearch {
+  width: 266px;
+  height: 90px;
+}
+
+.customerSearch label {
+  width: 80px;
+  height: 24px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color:var(--black);
+}
+
+.customerSearch input {
+  width: 266px;
+  height: 50px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;
+}
+
+.invoiceSearch label{ 
+  width: 77px;
+  height: 24px;
+ 
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  
+  color:var(--black);
+}
+
+.invoiceSearch input{
+  width: 266px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.startDateSearch label{
+  width: 80px;
+  height: 24px;
+  
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color:var(--black);  
+}
+
+.startDateSearch input{
+  width: 266px;
+  height: 50px;
+  
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.endDateSearch label {
+  width: 72px;
+  height: 24px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color:var(--black);  
+}
+
+.endDateSearch input{
+  width: 266px;
+  height: 50px;
+  
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 19, 19, 0.25);
+  border-radius: 3px;  
+}
+
+.customerSearch input,
+.invoiceSearch input,
+.startDateSearch input,
+.endDateSearch input {
+  margin-top: 16px;
+}
+
+.customerSearch input::placeholder,
+.invoiceSearch input::placeholder,
+.startDateSearch input::placeholder,
+.endDateSearch input::placeholder {
+  padding: 24px 13px 24px;
+
+  width: 176px;
+  height: 24px;
+  
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(19, 19, 19, 0.6);
+}

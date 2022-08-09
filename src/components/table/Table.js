@@ -1,6 +1,6 @@
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
-import styles from './table.module.css';
+import styles from "../table/table.module.css";
 
 const Table = ({ invoices, handleSortingChange }) => {
   const columns = [
@@ -20,9 +20,7 @@ const Table = ({ invoices, handleSortingChange }) => {
           columns={columns}
           handleSortingChange={handleSortingChange}
         />
-        {invoices && (
-          <TableBody columns={columns} invoices={invoices} />
-        )}
+        {invoices && <TableBody columns={columns} invoices={invoices} />}
       </table>
     </>
   );

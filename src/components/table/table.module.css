@@ -9,12 +9,12 @@
 }
 
 .table {
-  position: absolute;
-  width: 1130px;
+  margin-top: 40px;
+  
   height: 774px;
-  left: 270px;
-  top: 342px;
-  background: #FFFFFF;
+  min-width: 1130px;
+  
+  background: var(--white);
   border-radius: 3px;
   line-height: 78px;
 }
@@ -40,4 +40,11 @@
   font-size: 16px;
 
   color:var(--black);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--darkgrey);
+  border-radius: 3px;
 }
