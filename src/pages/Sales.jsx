@@ -4,6 +4,8 @@ import { todoApi } from '../api/todoApi'
 import Table from '../components/table/Table'
 import styles from '../pages/sales.module.css';
 import {FiSearch, FiBell} from 'react-icons/fi'
+import startOfDay from 'date-fns/startOfDay'
+import endOfDay from 'date-fns/endOfDay'
 
 const Sales = () => {
   const [invoices, setInvoices] = useState([])
@@ -45,8 +47,8 @@ const Sales = () => {
     setFilteredInvoices(invoices.filter(({ customer }) => customer.toLowerCase().includes(name.toLowerCase())))
   }
 
-  const searchId = ()=> {
-
+  const searchId = (invoiceId)=> {
+    setInvoiceId(invoiceId)
     setFilteredInvoices(invoices.filter(({id}) => invoiceId.length === 0 || id === invoiceId))
   
       // let filteredId = [];
@@ -79,11 +81,16 @@ const Sales = () => {
   }
   
  
-  const searchDates = () => {
-    const startDateTs = new Date(startDate).setHours(0, 0, 0, 0);
-    const endDateTs = new Date(endDate).setHours(23, 59, 59, 999)
-       
-    let filteredDates = invoices.filter(invoice => startDate && endDate ? ((Date.parse(invoice.date) >= startDateTs) && (endDateTs > Date.parse(invoice.date))) : startDate && !endDate? (Date.parse(invoice.date) >= startDateTs) : (endDateTs > Date.parse(invoice.date)))
+  const searchDates = (startDate, endDate) => {
+    setStartDate(startDate)
+    setEndDate(endDate);
+   
+    // const startDateTs = new Date(startDate).setHours(0, 0, 0, 0);
+    // const endDateTs = new Date(endDate).setHours(23, 59, 59, 999)
+    const startDateTs = startOfDay(new Date(startDate));
+    const endDateTs = endOfDay(new Date(endDate))
+
+    let filteredDates = invoices.filter(({date}) => startDate && endDate ? ((new Date(date) >= startDateTs) && (endDateTs > new Date(date))) : startDate && !endDate? (new Date(date) >= startDateTs) : (endDateTs > new Date(date)))
     setFilteredInvoices(filteredDates);
   }
   
@@ -142,15 +149,15 @@ const Sales = () => {
         </div>
         <div className={styles.invoiceSearch}>
           <label htmlFor="invoice">Invoice ID</label>
-          <input type="text" name='invoice' placeholder='Enter Invoice ID' value={invoiceId} onChange={(event)=> setInvoiceId(event.target.value)}/>
+          <input type="text" name='invoice' placeholder='Enter Invoice ID' value={invoiceId} onChange={(event)=> searchId(event.target.value)}/>
         </div>
         <div className={styles.startDateSearch}>
           <label htmlFor="startDate">Start Date</label>
-          <input type="date" name='startDate' placeholder='Start Date' value={startDate} onChange={(event)=> setStartDate(event.target.value)} max={endDate ? new Date(endDate).toISOString().split("T")[0]: ""}/>
+          <input type="date" name='startDate' placeholder='Start Date' value={startDate} onChange={(event)=> searchDates(event.target.value, endDate)} max={endDate ? new Date(endDate).toISOString().split("T")[0]: ""}/>
         </div>
         <div className={styles.endDateSearch}>
           <label htmlFor="endDate">End Date</label>
-          <input type="date" name='endDate' placeholder='End Date'value={endDate} onChange={(event)=> setEndDate(event.target.value)} min={startDate ? new Date(startDate).toISOString().split("T")[0]: ""}/>
+          <input type="date" name='endDate' placeholder='End Date'value={endDate} onChange={(event)=> searchDates(startDate, event.target.value)} min={startDate ? new Date(startDate).toISOString().split("T")[0]: ""}/>
         </div>
       </div>
       
