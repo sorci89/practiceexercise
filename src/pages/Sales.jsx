@@ -40,33 +40,28 @@ const Sales = () => {
     })
   };
 
-  const searchCustomer = ()=> {
-      let filteredCustomers = [];
-      
-      for (const invoice of invoices) {
-        if (invoice.customer.toLowerCase().includes(customerName.toLowerCase())) {
-          filteredCustomers.push(invoice)
-        }
-      }  
-  
-      setFilteredInvoices(filteredCustomers)
+  const searchCustomer = (name)=> {
+    setCustomerName(name);
+    setFilteredInvoices(invoices.filter(({ customer }) => customer.toLowerCase().includes(name.toLowerCase())))
   }
 
   const searchId = ()=> {
 
-      let filteredId = [];
+    setFilteredInvoices(invoices.filter(({id}) => invoiceId.length === 0 || id === invoiceId))
+  
+      // let filteredId = [];
       
-      if (invoiceId.length === 0) {
-        setFilteredInvoices(invoices)
-        return
-      }
-      for (const invoice of invoices) {
-        if (invoice.id === invoiceId) {
-          filteredId.push(invoice)
-        }
-      }  
+      // if (invoiceId.length === 0) {
+      //   setFilteredInvoices(invoices)
+      //   return
+      // }
+      // for (const invoice of invoices) {
+      //   if (invoice.id === invoiceId) {
+      //     filteredId.push(invoice)
+      //   }
+      // }  
 
-      setFilteredInvoices(filteredId)
+      // setFilteredInvoices(filteredId)
   }
 
   
@@ -96,29 +91,30 @@ const Sales = () => {
     getData()
      // eslint-disable-next-line
   }, [])
+
   
-  useEffect(() => {
-    searchCustomer()
-    setInvoiceId("")
-    setStartDate("")
-    setEndDate("")
-     // eslint-disable-next-line
-  }, [customerName])
+  // useEffect(() => {
+  //   searchCustomer()
+  //   setInvoiceId("")
+  //   setStartDate("")
+  //   setEndDate("")
+  //    // eslint-disable-next-line
+  // }, [customerName])
   
-  useEffect(() => {
-    searchId()
-    setCustomerName("")
-    setStartDate("")
-    setEndDate("")
-     // eslint-disable-next-line
-  }, [invoiceId])
+  // useEffect(() => {
+  //   searchId()
+  //   setCustomerName("")
+  //   setStartDate("")
+  //   setEndDate("")
+  //    // eslint-disable-next-line
+  // }, [invoiceId])
   
-  useEffect(() => {
-    searchCustomer()
-    setInvoiceId("")
-    searchDates(startDate, endDate)
-     // eslint-disable-next-line
-  }, [startDate, endDate])
+  // useEffect(() => {
+  //   searchCustomer()
+  //   setInvoiceId("")
+  //   searchDates(startDate, endDate)
+  //    // eslint-disable-next-line
+  // }, [startDate, endDate])
 
 
   return (
@@ -142,7 +138,7 @@ const Sales = () => {
       <div className={styles.salesSearchFields}>
         <div className={styles.customerSearch}>
           <label htmlFor="customer">Customer</label>
-          <input type="text" name='customer' placeholder='Enter Customer Name' value={customerName} onChange={(event)=> setCustomerName(event.target.value)} />
+          <input type="text" name='customer' placeholder='Enter Customer Name' value={customerName} onChange={(event)=> searchCustomer(event.target.value)} />
         </div>
         <div className={styles.invoiceSearch}>
           <label htmlFor="invoice">Invoice ID</label>
