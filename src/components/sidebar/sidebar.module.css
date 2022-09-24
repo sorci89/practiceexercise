@@ -2,20 +2,14 @@
 .sideBar {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    
-    width: 230px;
-    height: 100vh;
-  
+    flex-shrink: 0;
+    padding-right: 20px;
     background: var(--white) ;
   }
   
   .logo {
     margin: 55px 29px 65px;
-    
-    width: 71px;
-    height: 36px;
-  
+      
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -27,13 +21,14 @@
     display: grid;
     grid-template-columns: 43px 37px auto;
     grid-template-rows: repeat(7, 24px);
-    column-gap: 0px;
-    row-gap: 41px;
-    justify-items: start;
     align-items: center;
-    justify-content: start;
-  
-    height: inherit;
+    align-content: stretch;
+    row-gap: 20px;
+
+    padding-bottom: 33px;
+   
+    height: 100%;  
+    width: 100%;
   }
   
   .active {
@@ -80,8 +75,6 @@
     background-color: var(--main--color);  
   }
   .dashBoardText {
-    width: 92px;
-    height: 24px;
    
     font-style: normal;
     font-weight: 400;
@@ -96,13 +89,9 @@
     
     margin-right: 17px;
     
-    width: 20.01px;
-    height: 18.88px;    
-  }
+ }
   .labTestText {
-    width: 69px;
-    height: 24px;
-  
+    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -115,14 +104,10 @@
     grid-column: 1/3;
     justify-self: end;
     margin-right: 17px;
-  
-    width: 20.01px;
-    height: 18.88px;   
+   
   }
   .appointmentText {
-    width: 109px;
-    height: 24px;
-    
+       
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -136,14 +121,10 @@
   
     margin-right: 17px;
     
-    width: 20.01px;
-    height: 18.88px;  
+     
   }
   
   .medicineOrderText {
-    width: 127px;
-    height: 24px;
-  
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -156,14 +137,8 @@
     justify-self: end;
   
     margin-right: 17px;
-    
-    width: 20.01px;
-    height: 18.88px;  
   }
   .messageText {
-    width: 74px;
-    height: 24px;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -176,14 +151,8 @@
     justify-self: end;
   
     margin-right: 17px;
-    
-    width: 20.01px;
-    height: 18.88px;  
   }
   .paymentText {
-    width: 74px;
-    height: 24px;
-  
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -196,14 +165,8 @@
     justify-self: end;
     
     margin-right: 17px;
-  
-    width: 20.01px;
-    height: 18.88px;  
   }
   .settingsText {
-    width: 67px;
-    height: 24px;
-   
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -212,23 +175,14 @@
     color: var(--sealbrown);
   }
   .helpIcon{
-    margin-bottom: 30px;
     grid-column: 1/3;
-    align-self: end;
     justify-self: end;
+    align-self: flex-end;
     
     margin-right: 17px;
-    
-    width: 20.01px;
-    height: 18.88px;
   }
   .helpText {
-    margin-bottom: 30px;
-    align-self: end;
-    
-    width: 37px;
-    height: 24px;
-  
+    align-self: flex-end;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

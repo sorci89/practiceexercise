@@ -1,5 +1,7 @@
 .salesContainer {
-  margin: 56px 40px 33px 270px;
+  padding: 56px 40px 33px;
+  overflow-y: auto;
+  width: 100%;
 }
 
 .topHeader {
@@ -9,9 +11,8 @@
     align-items: center;
     gap: 350px;
     
+    margin-bottom: 40px;
     padding: 0px;
-    width: 1129px;
-    height: 52px;
   
 }
 
@@ -104,11 +105,7 @@
 
 
 .salesInformationText {
-  margin: 43.9px 0 24px;
-  
-  width: 213px;
-  height: 36px;
-  
+  margin-bottom: 40px;
   
   font-style: normal;
   font-weight: 500;
@@ -120,38 +117,36 @@
 .salesSearchFields{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   gap: 22px;
   
-  padding: 0px;
+  margin-bottom: 40px;
   
-  width: 1130px;
-  height: 90px;
 }
 
 .customerSearch,
 .invoiceSearch,
 .startDateSearch,
 .endDateSearch {
-  width: 266px;
-  height: 90px;
+display: flex;
+flex-direction: column;
+
+width: 100%;
+
+line-height: 24px;
+
 }
 
 .customerSearch label {
-  width: 80px;
-  height: 24px;
-
+  margin-bottom: 16px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   color:var(--black);
 }
 
 .customerSearch input {
-  width: 266px;
-  height: 50px;
 
   background: #FFFFFF;
   border: 1px solid rgba(19, 19, 19, 0.25);
@@ -159,63 +154,48 @@
 }
 
 .invoiceSearch label{ 
-  width: 77px;
-  height: 24px;
- 
+  margin-bottom: 16px;
+  
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   
   color:var(--black);
 }
 
 .invoiceSearch input{
-  width: 266px;
-  height: 50px;
-  
   background: #FFFFFF;
   border: 1px solid rgba(19, 19, 19, 0.25);
   border-radius: 3px;  
 }
 
 .startDateSearch label{
-  width: 80px;
-  height: 24px;
-  
+  margin-bottom: 16px;
   
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   color:var(--black);  
 }
 
 .startDateSearch input{
-  width: 266px;
-  height: 50px;
-  
-  
   background: #FFFFFF;
   border: 1px solid rgba(19, 19, 19, 0.25);
   border-radius: 3px;  
 }
 
 .endDateSearch label {
-  width: 72px;
-  height: 24px;
-  
+  margin-bottom: 16px;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   color:var(--black);  
 }
 
 .endDateSearch input{
-  width: 266px;
-  height: 50px;
-  
   background: #FFFFFF;
   border: 1px solid rgba(19, 19, 19, 0.25);
   border-radius: 3px;  
@@ -225,21 +205,16 @@
 .invoiceSearch input,
 .startDateSearch input,
 .endDateSearch input {
-  margin-top: 16px;
+  padding: 13px 24px;  
 }
 
 .customerSearch input::placeholder,
 .invoiceSearch input::placeholder,
 .startDateSearch input::placeholder,
-.endDateSearch input::placeholder {
-  padding: 24px 13px 24px;
-
-  width: 176px;
-  height: 24px;
-  
+.endDateSearch input::placeholder {  
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   color: rgba(19, 19, 19, 0.6);
 }

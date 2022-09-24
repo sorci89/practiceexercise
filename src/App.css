@@ -56,7 +56,5 @@ body{
 .App {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
+  height: 100vh;
 }

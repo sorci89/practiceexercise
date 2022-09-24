@@ -9,14 +9,11 @@
 }
 
 .table {
-  margin-top: 40px;
-  
-  height: 774px;
-  min-width: 1130px;
-  
   background: var(--white);
   border-radius: 3px;
   line-height: 78px;
+
+  width: 100%;
 }
 
 .table-cell {
