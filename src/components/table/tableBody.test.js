@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TableBody from "./TableBody";
+import { within } from "@testing-library/dom";
 
 const columns = [
   { label: <input type="checkbox" />, accessor: "?" },
@@ -53,8 +54,14 @@ test("it renders all data from invoices array", () => {
   ];
 
   render(<TableBody invoices={invoices} columns={columns} />);
-  const tableRow = screen.getAllByRole("row");
-  const tableColumnheaders = tableRow[0].children;
+  // const tableRow = screen.getAllByRole("row");
+  const tableColumnheaders = screen.getAllByRole("cell");
+
+  // select the first row [0]
+  // find all table cells -> td -> should return multiple cells(array)
+  // expect first row/first cell rows[0] cells[0] to be something/or have some value
+
+  //find table cell that matches some content
 
   expect(tableColumnheaders[1].textContent).toEqual("#" + invoices[0].id);
   expect(tableColumnheaders[2].textContent).toEqual("28/06/2022");
@@ -76,10 +83,12 @@ test("it renders id data with # and classname highlight", () => {
   ];
 
   render(<TableBody invoices={invoices} columns={columns} />);
-  const tableRow = screen.getAllByRole("row");
-  const tableColumnheaders = tableRow[0].children;
+  const firstTableRow = screen.getAllByRole("row")[0];
+  const tableColumnheaders = screen.getAllByRole("cell");
 
-  expect(tableColumnheaders[1].textContent).toEqual("#1");
+  expect(within(firstTableRow).getAllByRole("cell")[1].textContent).toEqual(
+    "#1"
+  );
   expect(tableColumnheaders[1].className).toEqual("table-cell " + "highlight");
   expect(tableColumnheaders[2].className).toEqual("table-cell " + "");
 });
@@ -93,8 +102,9 @@ test("it renders payable and paid amounts rounded", () => {
   ];
 
   render(<TableBody invoices={invoices} columns={columns} />);
-  const tableRow = screen.getAllByRole("row");
-  const tableColumnheaders = tableRow[0].children;
+  // const tableRow = screen.getAllByRole("row");
+  const tableColumnheaders = screen.getAllByRole("cell");
+  // const tableColumnheaders = tableRow[0].children;
 
   expect(tableColumnheaders[4].textContent).toEqual("$201");
   expect(tableColumnheaders[5].textContent).toEqual("$200");
@@ -109,8 +119,9 @@ test("it renders due amount from payable and paid amount", () => {
   ];
 
   render(<TableBody invoices={invoices} columns={columns} />);
-  const tableRow = screen.getAllByRole("row");
-  const tableColumnheaders = tableRow[0].children;
+  // const tableRow = screen.getAllByRole("row");
+  const tableColumnheaders = screen.getAllByRole("cell");
+  // const tableColumnheaders = tableRow[0].children;
 
   expect(tableColumnheaders[6].textContent).toEqual("$51");
 });
@@ -123,8 +134,9 @@ test("it renders a checkbox input at first cell of row", () => {
   ];
 
   render(<TableBody invoices={invoices} columns={columns} />);
-  const tableRow = screen.getAllByRole("row");
-  const tableColumnheaders = tableRow[0].children;
+  // const tableRow = screen.getAllByRole("row");
+  const tableColumnheaders = screen.getAllByRole("cell");
+  // const tableColumnheaders = tableRow[0].children;
 
   expect(tableColumnheaders[0].innerHTML).toEqual('<input type="checkbox">');
 });

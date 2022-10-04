@@ -6,6 +6,15 @@ import {AiOutlineMedicineBox} from 'react-icons/ai'
 import {FaRegCalendarAlt} from 'react-icons/fa'
 import {BsClipboardCheck} from 'react-icons/bs'
 
+// const NavItem = () => (
+//     <div className='wrapper'>
+//       <div className='item'>
+//         <svg />
+//         <a>link</a>
+//       </div>
+//     </div>
+// )
+
 const Sidebar = () => {
   return (
     <div className={styles.sideBar}>
